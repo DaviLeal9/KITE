@@ -8,5 +8,12 @@
   <h2>Bem-vindo</h2>
   <a href="Simplificando.html">Simplificando</a>
 
+  <script>
+    // Obtém o nome do armazenamento local e exibe na página
+    const nomeArmazenado = localStorage.getItem('nomeUsuario');
+    if (nomeArmazenado) {
+      document.getElementById('nomeUsuario').textContent = nomeArmazenado;
+    }
+  </script>
 </body>
 </html>

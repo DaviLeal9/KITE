@@ -33,11 +33,23 @@
       <h2><span>Venha Ser Um</span></h2>
       <h2>Aluno Kite</h2>
       <p>
-        "Com o Método Kite, O Código Voa Alto <br> e As Soluções Se Tornam Uma Brisa"
+        "Com o Método Kite, O Código Voa Alto 
+      </p>
+      <p>
+         e As Soluções Se Tornam Uma Brisa"
       </p>
       <form>
-        <input type="text" placeholder="Nome">
-        <input type="text" placeholder="Senha">
+        <input type="text" id="nomeInput" placeholder="Nome">
+
+        <label for="inivel">Nível:</label>
+        <input type="text" name="nivel" id="inivel" list="lstprof">
+        <datalist id="lstprof">
+          <option value="Iniciante"> (Sei Como Funciona A Web )</option>
+          <option value="Intermediário">(Sei HTML, CSS e JavaScript)</option>
+          <option value="Avançado">(Sei HTML, CSS JS e Outras Aplicações e Tecnologías)</option>
+
+        </datalist>
+
         <input type="submit" value="Enviar">
       </form>
     </aside>
@@ -47,6 +59,33 @@
     </article>
   
   </main>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form');
+      const nomeInput = document.getElementById('nomeInput');
+
+      // Verificando se há um login salvo
+      const loginSalvo = localStorage.getItem('nomeUsuario');
+      if (loginSalvo) {
+        nomeInput.value = loginSalvo; // Define o valor do input como o login salvo
+      }
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita o comportamento padrão do envio do formulário
+
+        // Salva o nome do usuário no armazenamento local
+        const nomeUsuario = nomeInput.value;
+        localStorage.setItem('nomeUsuario', nomeUsuario);
+
+        // Redirecionamento após o envio do formulário
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+
 
 </body>
 </html>
